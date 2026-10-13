@@ -8,3 +8,6 @@ reports/gameday/
 reports/*.json
 reports/*.png
 reports/cache/
+reports/cache_seed26/
+reports/cache_seed27/
+reports/cache_seed28/
