@@ -49,9 +49,7 @@ class Effect:
             return False
         if self.provider is not None and self.provider != spec.name:
             return False
-        if self.family is not None and self.family != spec.family:
-            return False
-        return True
+        return self.family is None or self.family == spec.family
 
 
 @dataclass(frozen=True)

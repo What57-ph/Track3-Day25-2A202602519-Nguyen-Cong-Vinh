@@ -32,8 +32,10 @@ class ExecutorFactory(Protocol):
 
 def make_requests(n: int, seed: int) -> list[RefundRequest]:
     rng = random.Random(seed)
+    # order ids must be unique: two sessions sharing an order would look like a duplicate refund
+    order_ids = rng.sample(range(10**6, 10**7), n)
     return [
-        RefundRequest(f"s{i:05d}", f"ord_{rng.randint(10**6, 10**7)}", rng.choice([1500, 4900, 12000, 35000]),
+        RefundRequest(f"s{i:05d}", f"ord_{order_ids[i]}", rng.choice([1500, 4900, 12000, 35000]),
                       f"user{i}@example.com")
         for i in range(n)
     ]

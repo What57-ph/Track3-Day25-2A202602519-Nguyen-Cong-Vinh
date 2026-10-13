@@ -6,9 +6,9 @@ from gameday_lab.breaker import BreakerState, Permit, SlidingWindowBreaker
 
 
 def make(**kw: object) -> SlidingWindowBreaker:
-    defaults: dict[str, object] = dict(window_size=10, min_calls=5, failure_rate_threshold=0.5,
-                                       slow_call_s=5.0, slow_rate_threshold=0.6, open_duration_s=10.0,
-                                       half_open_max_probes=2, half_open_successes=2)
+    defaults: dict[str, object] = {"window_size": 10, "min_calls": 5, "failure_rate_threshold": 0.5,
+                                   "slow_call_s": 5.0, "slow_rate_threshold": 0.6, "open_duration_s": 10.0,
+                                   "half_open_max_probes": 2, "half_open_successes": 2}
     defaults.update(kw)
     return SlidingWindowBreaker("alpha", **defaults)  # type: ignore[arg-type]
 

@@ -43,7 +43,10 @@ Sơ đồ quyết định của `on_error` (ASCII hoặc bảng: loại lỗi �
    (`retry_budget_ratio: 100`, `retry_budget_max_tokens: 1.0e9`, `retry_budget_min_per_s: 1.0e6`).
    So sánh amplification, retry_ratio, recovery. Khi breaker *hoạt động đúng* thì budget còn quan trọng không — vì sao
    vẫn nên có cả hai?
-2. **`attempt_timeout_s: 30`.** Chạy G4, G6. Chuyện gì xảy ra với p95 và availability? Timeout "đúng" nên dựa vào đâu?
+2. **`attempt_timeout_s: 30`.** Chạy G6 (và G4 để đối chứng). Nhìn **availability** và `give_up_reasons`
+   trước, rồi mới nhìn p95. Lưu ý: `latency_p95_s` chỉ tính trên *lượt thành công*, nên khi nhiều lượt treo 30 s
+   rồi hết hạn, p95 có thể *giảm* trong khi availability tụt (survivorship bias). Vì sao G4 gần như không đổi?
+   Timeout "đúng" nên dựa vào đâu (p99 lúc bình thường, deadline của user, hay thời gian cần cho một lần fail over)?
 3. **Bỏ lọc tool calling khỏi `ladder()`.** Chạy G6. Giải thích con số `incompatible_routes` bằng ngôn ngữ của
    một product manager.
 

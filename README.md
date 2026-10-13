@@ -191,8 +191,26 @@ Nếu Part C chưa xong thì vẫn lấy được 4 điểm test của Part G.
 
 ## 8. Nộp bài
 
-Repo (hoặc zip) gồm: code đã hoàn thành, `configs/gameday.yaml`, `reports/REPORT.md` (+ hình), `reports/scoreboard.json`
-từ `make grade`. Grader chạy: `pip install -e ".[dev]" && make grade` trên máy sạch.
+Nộp bằng **một repo GitHub ở chế độ public** (không nộp zip).
+
+**Quy tắc đặt tên repo:** `Track3-Day25-<MSV>-<Họ-Và-Tên>`
+
+- `<MSV>`: mã số sinh viên của bạn.
+- `<Họ-Và-Tên>`: viết **không dấu**, mỗi từ viết hoa chữ cái đầu, nối bằng dấu gạch ngang `-` (không dùng khoảng trắng).
+- Ví dụ: sinh viên Nguyễn Văn An, MSV `20260123` → repo `Track3-Day25-20260123-Nguyen-Van-An`.
+
+**Repo gồm:** code đã hoàn thành, `configs/gameday.yaml`, `reports/REPORT.md` (+ hình), `reports/scoreboard.json`
+từ `make grade`. Thư mục `reports/` **không** bị gitignore — hãy commit cả nó (lưu ý `make clean` xóa hình và CSV
+trong đó).
+
+**Cách nộp:**
+
+1. Tạo repo public đúng tên trên (hoặc fork repo này rồi đổi tên theo quy tắc).
+2. Push bài làm lên nhánh `main`.
+3. Ghi **commit hash** nộp bài vào dòng `Commit:` đầu `reports/REPORT.md`, và ghi **họ tên + MSV** ở dòng `Họ tên / nhóm`.
+4. Nộp **link repo** (ví dụ `https://github.com/<username>/Track3-Day25-20260123-Nguyen-Van-An`) lên kênh nộp bài của lớp.
+
+Grader chạy: `pip install -e ".[dev]" && make grade` trên máy sạch.
 
 ## 9. Rubric (100 điểm)
 
