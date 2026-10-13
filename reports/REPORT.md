@@ -1,4 +1,4 @@
-# Lab 25B — Report
+# Lab 25A — Report
 
 **Họ tên / nhóm:** Nguyễn Công Vinh **Commit:** `fa340f4bee7f44857c7a66f1fc5087bac4539815` **Điểm tự động (`make grade`):** 88 / 88
 
